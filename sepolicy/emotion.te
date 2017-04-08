@@ -3,6 +3,10 @@ allow logd kernel:system module_request;
 allow logd self:capability { dac_override dac_read_search };
 #============= system_server ==============
 allow system_server time_daemon:unix_stream_socket connectto;
+allow system_server unlabeled:file unlink;
 #============= untrusted_app ==============
 allow untrusted_app rootfs:dir read;
 allow untrusted_app sysfs:file read; 
+allow untrusted_app rootfs:dir open;
+allow untrusted_app sysfs:file open;
+
